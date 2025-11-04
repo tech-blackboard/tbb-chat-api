@@ -22,6 +22,7 @@ export class PerplexityService {
     model?: string,
     maxTokens?: number,
     temperature?: number,
+    topP?: number,  // Add this parameter
   ) {
     try {
       const messages: any[] = [];
@@ -43,6 +44,7 @@ export class PerplexityService {
         messages,
         max_tokens: maxTokens || 1000,
         temperature: temperature || 0.7,
+        top_p: topP || 1,  // Add this line
         stream: false,
     }) as PerplexityResponse;
 
